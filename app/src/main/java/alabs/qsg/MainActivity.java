@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 IntentIntegrator integrator = new IntentIntegrator(activity);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-                integrator.setPrompt("Scan QR Code");
+                integrator.setPrompt("Scan Your QR Code");
                 integrator.setBeepEnabled(true);
                 integrator.setCameraId(0);
                 integrator.setBarcodeImageEnabled(false);
@@ -151,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Toast.makeText(getApplicationContext(), result,
                     Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(),AddItem.class);
+            startActivity(intent);
 
         }
     }
