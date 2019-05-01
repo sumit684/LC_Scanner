@@ -22,21 +22,25 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.widget.TextView;
 
 public class AddItem extends AppCompatActivity implements View.OnClickListener {
 
 
     EditText editTextItemName,editTextBrand;
     Button buttonAddItem;
+    TextView textView4;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.add_item);
-
+//        textView4 = (TextView)findViewById(R.id.textView2);
+//        textView4.setText(MainActivity.scannedData);
         editTextItemName = (EditText)findViewById(R.id.et_item_name);
         editTextBrand = (EditText)findViewById(R.id.et_brand);
-
+        editTextItemName.setText(MainActivity.scannedData);
         buttonAddItem = (Button)findViewById(R.id.btn_add_item);
         buttonAddItem.setOnClickListener(this);
 
@@ -47,14 +51,14 @@ public class AddItem extends AppCompatActivity implements View.OnClickListener {
 
     private void   addItemToSheet() {
 
-        final ProgressDialog loading = ProgressDialog.show(this,"Adding Item","Please wait");
+        final ProgressDialog loading = ProgressDialog.show(this,"Sending Data to Server","Please wait");
         final String name = editTextItemName.getText().toString().trim();
         final String brand = editTextBrand.getText().toString().trim();
 
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "Add Your Web App URL",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbxa68Lt1NZHu91qUmAdvPeGgo0Ns7Cz9u7cD_2qbXbjSllZZlY/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

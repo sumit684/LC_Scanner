@@ -63,5 +63,6 @@
         android:text="Send Data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_brand" />
+        app:layout_constraintTop_toBottomOf="@+id/et_brand"
+        android:background="@drawable/shape"/>
 </android.support.constraint.ConstraintLayout>
