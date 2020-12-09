@@ -58,7 +58,7 @@ public class AddItem extends AppCompatActivity implements View.OnClickListener {
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbxa68Lt1NZHu91qUmAdvPeGgo0Ns7Cz9u7cD_2qbXbjSllZZlY/exec",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbyCTx-rL0DOqBPdKY8a1wSBBenCrkFZR-gclIvfuhqhPFj9A4T_/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -81,10 +81,11 @@ public class AddItem extends AppCompatActivity implements View.OnClickListener {
             protected Map<String, String> getParams() {
                 Map<String, String> parmas = new HashMap<>();
 
-                //here we pass params
-                parmas.put("action","addItem");
-                parmas.put("itemName",name);
-                parmas.put("brand",brand);
+                //here we pass params PAYOFF_DRUM_NUMBER, PAYOFF_DRUM_TYPE, PAYOFF_TARE_WEIGHT, PAYOFF_DRUM_SIZE,
+                parmas.put("PAYOFF_DRUM_NUMBER","12251");
+                parmas.put("PAYOFF_DRUM_TYPE","Iron");
+                parmas.put("PAYOFF_TARE_WEIGHT","500 Kg");
+                parmas.put("PAYOFF_DRUM_SIZE","12C X 1.5 SQ. MM.");
 
                 return parmas;
             }
