@@ -2,31 +2,14 @@ package alabs.qsg;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.net.UnknownHostException;
-import java.util.Iterator;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,37 +27,28 @@ public class MainActivity extends AppCompatActivity {
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrator = new IntentIntegrator(activity);
-                integrator.setOrientationLocked(false);
-                integrator.setCaptureActivity(ScanActivity.class);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-                integrator.setPrompt("Scan Your QR Code");
-                integrator.setBeepEnabled(true);
-                integrator.setCameraId(0);
-                integrator.setBarcodeImageEnabled(false);
-                integrator.initiateScan();
+                Intent intent = new Intent(getApplicationContext(), FormActivity.class);
+                startActivity(intent);
             }
         });
-
     }
 
     //
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
-            scannedData = result.getContents();
-            if (scannedData != null) {
-                // Here we need to handle scanned data...
-//            new SendRequest().execute();
-
-                Intent intent = new Intent(getApplicationContext(), AddItem.class);
-                startActivity(intent);
-            } else {
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//        if (result != null) {
+//            scannedData = result.getContents();
+//            if (scannedData != null) {
+//                // Here we need to handle scanned data...
+////            new SendRequest().execute();
+//
+//
+//            } else {
+//            }
+//        }
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
 
 //
 //    public class SendRequest extends AsyncTask<String, Void, String> {

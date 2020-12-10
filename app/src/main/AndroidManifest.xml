@@ -28,7 +28,7 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".AddItem"/>
+        <activity android:name=".FormActivity"/>
     </application>
 
 </manifest>
